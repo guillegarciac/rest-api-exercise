@@ -2,6 +2,7 @@ require('dotenv').config();
 require('./db');
 const createError = require('http-errors');
 const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // routes intro
+app.use(cors());
 app.use('/', indexRouter);
 app.use("/shows", showsRouter);
 
